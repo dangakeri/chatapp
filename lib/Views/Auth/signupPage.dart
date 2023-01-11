@@ -1,6 +1,8 @@
+import 'package:chatapp/Pages/Home.dart';
+import 'package:chatapp/Pages/chatPage.dart';
 import 'package:flutter/material.dart';
 
-import '../HomePage.dart';
+import '../../Pages/callPage.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -56,7 +58,7 @@ class SignUp extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      MaterialPageRoute(builder: (context) => const Home()),
                     );
                   },
                 )),

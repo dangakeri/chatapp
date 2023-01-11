@@ -1,5 +1,7 @@
+import 'package:chatapp/Pages/Home.dart';
+import 'package:chatapp/Pages/chatPage.dart';
 import 'package:chatapp/Views/Auth/signupPage.dart';
-import 'package:chatapp/Views/HomePage.dart';
+import 'package:chatapp/Pages/callPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -105,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      MaterialPageRoute(builder: (context) => const Home()),
                     );
                   },
                 )),
