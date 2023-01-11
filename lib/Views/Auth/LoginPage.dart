@@ -1,3 +1,5 @@
+import 'package:chatapp/Views/Auth/signupPage.dart';
+import 'package:chatapp/Views/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -100,7 +102,12 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Login'),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  },
                 )),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -113,6 +120,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   onPressed: () {
                     //signup screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignUp()),
+                    );
                   },
                 )
               ],
