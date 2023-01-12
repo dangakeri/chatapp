@@ -2,6 +2,7 @@ import 'package:chatapp/Pages/Home.dart';
 import 'package:chatapp/Pages/chatPage.dart';
 import 'package:chatapp/Views/Auth/signupPage.dart';
 import 'package:chatapp/Pages/callPage.dart';
+import 'package:chatapp/consts/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -91,8 +92,9 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       //forgot password screen
                     },
-                    child: const Text(
+                    child: Text(
                       'Forgot Password',
+                      style: TextStyle(color: AppColors.blue),
                     ),
                   ),
                 ],
@@ -105,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const Home()),
                     );
@@ -116,13 +118,13 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const Text('Does not have an account?'),
                 TextButton(
-                  child: const Text(
+                  child: Text(
                     'Sign up',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, color: AppColors.blue),
                   ),
                   onPressed: () {
                     //signup screen
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const SignUp()),
                     );

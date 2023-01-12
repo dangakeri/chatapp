@@ -1,6 +1,8 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 
+import '../consts/app_color.dart';
+
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
@@ -8,13 +10,18 @@ class ChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.blue,
         title: const Text('Chats'),
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(BootstrapIcons.search)),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(BootstrapIcons.three_dots_vertical),
-          )
+          PopupMenuButton(
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem(child: Text('Delete All')),
+                PopupMenuItem(child: Text('starred Messages')),
+              ];
+            },
+          ),
         ],
       ),
       body: Padding(
@@ -315,6 +322,7 @@ class ChatPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.blue,
         onPressed: () {},
         child: Icon(BootstrapIcons.pencil),
       ),

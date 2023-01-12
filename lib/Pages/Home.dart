@@ -3,6 +3,7 @@ import 'package:chatapp/Pages/callPage.dart';
 import 'package:chatapp/Pages/chatPage.dart';
 import 'package:chatapp/Pages/contactsPage.dart';
 import 'package:chatapp/Pages/groupPage.dart';
+import 'package:chatapp/consts/app_color.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -26,7 +27,7 @@ class _HomeState extends State<Home> {
       body: pages[index],
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.purpleAccent,
+        selectedItemColor: AppColors.purple,
         currentIndex: index,
         onTap: (value) {
           setState(() {
