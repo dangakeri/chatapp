@@ -1,10 +1,12 @@
 import 'package:chatapp/consts/app_color.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'Views/Auth/LoginPage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'chatapp',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: AppColors.blue,
       ),
       home: const LoginPage(),
     );

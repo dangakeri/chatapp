@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "219924102422",
+    "project_id": "chatapp-dcf3e",
+    "storage_bucket": "chatapp-dcf3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219924102422:android:4dda605b4421eb5f96e437",
+        "android_client_info": {
+          "package_name": "com.kenya.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219924102422-40ofomjr6v85qv49fo2646rn2259p9o3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kenya.chatapp",
+            "certificate_hash": "67a73734f413a3d7651a9f3327550e95ba6e5677"
+          }
+        },
+        {
+          "client_id": "219924102422-t6m1r668sig8no66d9ksa5vv4q8j3bhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqoIGsskJKfdSFvf4HNBzCKNj_YiueRP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219924102422-t6m1r668sig8no66d9ksa5vv4q8j3bhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

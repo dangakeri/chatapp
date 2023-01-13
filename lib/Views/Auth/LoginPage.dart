@@ -1,10 +1,16 @@
 import 'package:chatapp/Pages/Home.dart';
 import 'package:chatapp/Pages/chatPage.dart';
+import 'package:chatapp/Views/Auth/Api/firebase_google_signin.dart';
 import 'package:chatapp/Views/Auth/signupPage.dart';
 import 'package:chatapp/Pages/callPage.dart';
 import 'package:chatapp/consts/app_color.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import 'fire_auth.dart';
+import 'validator.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,6 +20,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  String email = '';
+  String password = '';
   bool passwordVisible = false;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -32,8 +41,10 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * .15),
-            const Text('ChatApp',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            const Text(
+              'ChatApp',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: MediaQuery.of(context).size.height * .05),
             const Center(
                 child: Text(
@@ -43,23 +54,34 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: MediaQuery.of(context).size.height * .03),
             Container(
               width: MediaQuery.of(context).size.width * .8,
-              child: TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Email',
-                ),
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * .02),
-            Container(
-              width: MediaQuery.of(context).size.width * .8,
-              child: TextField(
-                controller: passwordController,
-                obscureText: passwordVisible,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Enter Password',
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      validator: (value) =>
+                          Validator.validateEmail(email: value!),
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter Email',
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * .02),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .8,
+                      child: TextFormField(
+                        validator: (value) =>
+                            Validator.validatePassword(password: value!),
+                        controller: passwordController,
+                        obscureText: passwordVisible,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Enter Password',
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -101,18 +123,29 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width * .83,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  child: const Text('Login'),
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Home()),
+              height: 50,
+              width: MediaQuery.of(context).size.width * .83,
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: ElevatedButton(
+                child: const Text('Login'),
+                onPressed: () async {
+                  _formKey.currentState!.validate();
+                  final User? newUser = await SignInGoogle()
+                      .signUpWithEmailAndPassword(
+                          emailController.text, passwordController.text);
+                  print(newUser!.uid);
+
+                  if (newUser!.emailVerified) {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => Home()),
                     );
-                  },
-                )),
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Something went wrong')));
+                  }
+                },
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -135,7 +168,10 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: MediaQuery.of(context).size.height * .01),
             SignInButton(
               Buttons.Google,
-              onPressed: () {},
+              onPressed: () {
+                var user = SignInGoogle().signInWithGoogle();
+                print(user);
+              },
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .01),
             const Center(child: Text('By signing in you are agreeing to our')),
