@@ -1,8 +1,7 @@
 import 'package:chatapp/Pages/Home.dart';
-import 'package:chatapp/Pages/chatPage.dart';
 import 'package:flutter/material.dart';
 
-import '../../Pages/callPage.dart';
+import '../../consts/app_color.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -54,6 +53,7 @@ class SignUp extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * .83,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: AppColors.blue),
                   child: const Text('Sign Up'),
                   onPressed: () {
                     Navigator.pushReplacement(

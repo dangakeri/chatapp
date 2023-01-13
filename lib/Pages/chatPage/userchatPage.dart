@@ -1,4 +1,5 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
+import 'package:chatapp/Pages/chatPage/ChatProfilePage.dart';
 import 'package:chatapp/consts/app_color.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ class UserChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColors.blue,
         leading: Row(
@@ -26,7 +28,12 @@ class UserChat extends StatelessWidget {
           ],
         ),
         title: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChatProfile()),
+              );
+            },
             child: const Text(
               'Daniel Gakeri',
               style: TextStyle(
@@ -99,21 +106,39 @@ class UserChat extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * .72,
+                  width: MediaQuery.of(context).size.width * .8,
                   height: MediaQuery.of(context).size.height * .06,
                   decoration: BoxDecoration(
                       color: Colors.grey.withOpacity(.3),
-                      borderRadius: BorderRadius.circular(30)),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Type Message',
+                          suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: Icon(BootstrapIcons.paperclip)),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .02,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width * .2,
+                  width: MediaQuery.of(context).size.width * .1,
                   height: MediaQuery.of(context).size.height * .06,
                   decoration: BoxDecoration(
                       color: Colors.grey.withOpacity(.3),
-                      borderRadius: BorderRadius.circular(30)),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(BootstrapIcons.mic),
+                  ),
                 ),
               ],
             ),

@@ -1,10 +1,10 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
-import 'package:chatapp/Pages/callPage.dart';
-import 'package:chatapp/Pages/chatPage.dart';
-import 'package:chatapp/Pages/contactsPage.dart';
-import 'package:chatapp/Pages/groupPage.dart';
-import 'package:chatapp/consts/app_color.dart';
 import 'package:flutter/material.dart';
+import '../consts/app_color.dart';
+import 'callPage/callPage.dart';
+import 'chatPage/chatPage.dart';
+import 'contactsPage/contactsPage.dart';
+import 'groupPage/groupPage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

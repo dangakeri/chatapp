@@ -1,7 +1,6 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
-
-import '../consts/app_color.dart';
+import '../../consts/app_color.dart';
 import 'userchatPage.dart';
 
 class ChatPage extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 
-import '../consts/app_color.dart';
+import '../../consts/app_color.dart';
 
 class CallPage extends StatelessWidget {
   const CallPage({super.key});

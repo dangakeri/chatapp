@@ -1,8 +1,6 @@
 import 'package:chatapp/Pages/Home.dart';
-import 'package:chatapp/Pages/chatPage.dart';
 import 'package:chatapp/Views/Auth/Api/firebase_google_signin.dart';
 import 'package:chatapp/Views/Auth/signupPage.dart';
-import 'package:chatapp/Pages/callPage.dart';
 import 'package:chatapp/consts/app_color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -127,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
               width: MediaQuery.of(context).size.width * .83,
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: AppColors.blue),
                 child: const Text('Login'),
                 onPressed: () async {
                   _formKey.currentState!.validate();
