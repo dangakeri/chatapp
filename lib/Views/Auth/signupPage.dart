@@ -56,7 +56,7 @@ class SignUp extends StatelessWidget {
                 child: ElevatedButton(
                   child: const Text('Sign Up'),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const Home()),
                     );

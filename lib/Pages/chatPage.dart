@@ -2,6 +2,7 @@ import 'package:bootstrap_icons/bootstrap_icons.dart';
 import 'package:flutter/material.dart';
 
 import '../consts/app_color.dart';
+import 'userchatPage.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -30,22 +31,30 @@ class ChatPage extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           children: [
             SizedBox(height: MediaQuery.of(context).size.height * .01),
-            ListTile(
-              leading: const CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage('assets/avatar.jpeg'),
-              ),
-              title: const Text('Daniel Gakeri'),
-              subtitle: const Text('How are you doing my brother'),
-              trailing: Column(
-                children: [
-                  const Text('5:29 PM'),
-                  SizedBox(height: MediaQuery.of(context).size.height * .01),
-                  const CircleAvatar(
-                    radius: 10,
-                    child: Text('2'),
-                  )
-                ],
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const UserChat()),
+                );
+              },
+              child: ListTile(
+                leading: const CircleAvatar(
+                  radius: 20,
+                  backgroundImage: AssetImage('assets/avatar.jpeg'),
+                ),
+                title: const Text('Daniel Gakeri'),
+                subtitle: const Text('How are you doing my brother'),
+                trailing: Column(
+                  children: [
+                    const Text('5:29 PM'),
+                    SizedBox(height: MediaQuery.of(context).size.height * .01),
+                    const CircleAvatar(
+                      radius: 10,
+                      child: Text('2'),
+                    )
+                  ],
+                ),
               ),
             ),
             ListTile(
