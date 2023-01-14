@@ -58,6 +58,26 @@ class GroupPage extends StatelessWidget {
                 ],
               ),
             ),
+            ListTile(
+              leading: const CircleAvatar(
+                radius: 20,
+                // backgroundImage: AssetImage('assets/avatar.jpeg'),
+                child: Icon(BootstrapIcons.people),
+              ),
+              title: const Text('Flutter community'),
+              subtitle:
+                  const Text('Scrollview will be used in the scrolls guys'),
+              trailing: Column(
+                children: [
+                  const Text('5:15 PM'),
+                  SizedBox(height: MediaQuery.of(context).size.height * .01),
+                  const CircleAvatar(
+                    radius: 10,
+                    child: Text('72'),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
